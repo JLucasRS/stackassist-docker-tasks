@@ -1,0 +1,13 @@
+services:
+  web:
+    container_name: backend
+    build: ./backend/
+    ports:
+      - "8888:8888"
+    command: "node backend.js"
+    volumes: 
+      - log_vol:/tmp
+    read_only: true
+
+volumes: 
+  log_vol: 
