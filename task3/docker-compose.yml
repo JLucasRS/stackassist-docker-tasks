@@ -1,0 +1,22 @@
+services:
+  web:
+    container_name: backend
+    build: ../task2/backend/
+    ports:
+      - "80:8888"
+    command: "node backend.js"
+    volumes: 
+      - log_vol:/tmp
+    read_only: true
+  
+  client:
+    container_name: client
+    build: ./client/
+    command: "node client.js"
+    network_mode: "host"
+    volumes: 
+      - log_vol:/tmp
+    read_only: true
+
+volumes: 
+  log_vol: 
